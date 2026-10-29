@@ -1,0 +1,28 @@
+# Backend
+api/target/
+api/run.log
+api/*.log
+api/*.class
+api/tmp-*.json
+api/cp.txt
+api/*.pdf
+api/page-*.png
+
+# Frontend
+web/node_modules/
+web/dist/
+web/*.local
+
+# Logs
+*.log
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Variables locales y secretos
+.env.local
+.env
