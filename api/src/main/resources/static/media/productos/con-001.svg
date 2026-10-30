@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Rack de puntas de pipeta">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fcfd"/>
+      <stop offset="1" stop-color="#e3eef6"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8f1f6"/>
+    </linearGradient>
+    <linearGradient id="pantalla" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f3d4d"/>
+      <stop offset="1" stop-color="#16586b"/>
+    </linearGradient>
+    <pattern id="trama" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#0d9488" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" fill="url(#fondo)"/>
+  <rect width="480" height="360" fill="url(#trama)"/>
+  <ellipse cx="240" cy="308" rx="152" ry="13" fill="#0f3d4d" opacity="0.07"/>
+<g>
+    <g fill="#0d9488" opacity="0.28" stroke="#0d9488" stroke-width="1.6">
+      <path d="M142 128l7 30-14 0z"/>
+      <path d="M168 128l7 30-14 0z"/>
+      <path d="M194 128l7 30-14 0z"/>
+      <path d="M220 128l7 30-14 0z"/>
+      <path d="M246 128l7 30-14 0z"/>
+      <path d="M272 128l7 30-14 0z"/>
+      <path d="M298 128l7 30-14 0z"/>
+      <path d="M324 128l7 30-14 0z"/>
+      <path d="M142 144l7 30-14 0z"/>
+      <path d="M168 144l7 30-14 0z"/>
+      <path d="M194 144l7 30-14 0z"/>
+      <path d="M220 144l7 30-14 0z"/>
+      <path d="M246 144l7 30-14 0z"/>
+      <path d="M272 144l7 30-14 0z"/>
+      <path d="M298 144l7 30-14 0z"/>
+      <path d="M324 144l7 30-14 0z"/>
+      <path d="M142 160l7 30-14 0z"/>
+      <path d="M168 160l7 30-14 0z"/>
+      <path d="M194 160l7 30-14 0z"/>
+      <path d="M220 160l7 30-14 0z"/>
+      <path d="M246 160l7 30-14 0z"/>
+      <path d="M272 160l7 30-14 0z"/>
+      <path d="M298 160l7 30-14 0z"/>
+      <path d="M324 160l7 30-14 0z"/>
+    </g>
+    <rect x="120" y="196" width="240" height="78" rx="8" fill="url(#metal)" stroke="#b9cede" stroke-width="2"/>
+    <rect x="132" y="208" width="216" height="54" rx="5" fill="#eef6f9" stroke="#d3e3ec"/>
+    <g fill="#c3d7e3">
+      <rect x="146" y="214" width="12" height="10" rx="2"/>
+      <rect x="172" y="214" width="12" height="10" rx="2"/>
+      <rect x="198" y="214" width="12" height="10" rx="2"/>
+      <rect x="224" y="214" width="12" height="10" rx="2"/>
+      <rect x="250" y="214" width="12" height="10" rx="2"/>
+      <rect x="276" y="214" width="12" height="10" rx="2"/>
+      <rect x="302" y="214" width="12" height="10" rx="2"/>
+      <rect x="328" y="214" width="12" height="10" rx="2"/>
+      <rect x="146" y="230" width="12" height="10" rx="2"/>
+      <rect x="172" y="230" width="12" height="10" rx="2"/>
+      <rect x="198" y="230" width="12" height="10" rx="2"/>
+      <rect x="224" y="230" width="12" height="10" rx="2"/>
+      <rect x="250" y="230" width="12" height="10" rx="2"/>
+      <rect x="276" y="230" width="12" height="10" rx="2"/>
+      <rect x="302" y="230" width="12" height="10" rx="2"/>
+      <rect x="328" y="230" width="12" height="10" rx="2"/>
+      <rect x="146" y="246" width="12" height="10" rx="2"/>
+      <rect x="172" y="246" width="12" height="10" rx="2"/>
+      <rect x="198" y="246" width="12" height="10" rx="2"/>
+      <rect x="224" y="246" width="12" height="10" rx="2"/>
+      <rect x="250" y="246" width="12" height="10" rx="2"/>
+      <rect x="276" y="246" width="12" height="10" rx="2"/>
+      <rect x="302" y="246" width="12" height="10" rx="2"/>
+      <rect x="328" y="246" width="12" height="10" rx="2"/>
+    </g>
+    <rect x="120" y="266" width="240" height="8" rx="4" fill="#dbe8ef"/>
+  </g>
+</svg>

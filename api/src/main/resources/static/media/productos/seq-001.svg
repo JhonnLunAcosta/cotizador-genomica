@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Secuenciador de sobremesa">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fcfd"/>
+      <stop offset="1" stop-color="#e3eef6"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8f1f6"/>
+    </linearGradient>
+    <linearGradient id="pantalla" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f3d4d"/>
+      <stop offset="1" stop-color="#16586b"/>
+    </linearGradient>
+    <pattern id="trama" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#0d9488" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" fill="url(#fondo)"/>
+  <rect width="480" height="360" fill="url(#trama)"/>
+  <ellipse cx="240" cy="308" rx="152" ry="13" fill="#0f3d4d" opacity="0.07"/>
+<g>
+    <rect x="104" y="116" width="272" height="156" rx="16" fill="url(#metal)" stroke="#b9cede" stroke-width="2"/>
+    <path d="M104 168h272" stroke="#dbe8ef" stroke-width="2"/>
+    <rect x="126" y="134" width="66" height="12" rx="6" fill="#d7e6ef"/>
+    <circle cx="346" cy="140" r="6" fill="#0d9488"/>
+    <rect x="126" y="184" width="118" height="72" rx="7" fill="#eef6f9" stroke="#cfe0ea"/>
+    <rect x="134" y="192" width="102" height="56" rx="3" fill="url(#pantalla)"/>
+    <path d="M144 236l16-20 13 11 15-19 19 28" fill="none" stroke="#5eead4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="262" y="186" width="96" height="26" rx="7" fill="#eaf3f7" stroke="#cfe0ea"/>
+    <circle cx="276" cy="199" r="4.5" fill="#0d9488"/>
+    <rect x="288" y="195" width="58" height="8" rx="4" fill="#c3d7e3"/>
+    <rect x="262" y="224" width="96" height="32" rx="9" fill="#12303c"/>
+    <rect x="272" y="235" width="76" height="10" rx="5" fill="#5eead4" opacity="0.85"/>
+    <circle cx="214" cy="278" r="3.5" fill="#bed2df"/>
+  </g>
+</svg>

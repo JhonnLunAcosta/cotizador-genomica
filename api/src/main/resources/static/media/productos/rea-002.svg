@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Cartucho de reactivos">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fcfd"/>
+      <stop offset="1" stop-color="#e3eef6"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8f1f6"/>
+    </linearGradient>
+    <linearGradient id="pantalla" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f3d4d"/>
+      <stop offset="1" stop-color="#16586b"/>
+    </linearGradient>
+    <pattern id="trama" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#0d9488" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" fill="url(#fondo)"/>
+  <rect width="480" height="360" fill="url(#trama)"/>
+  <ellipse cx="240" cy="308" rx="152" ry="13" fill="#0f3d4d" opacity="0.07"/>
+<g>
+    <rect x="108" y="128" width="264" height="150" rx="12" fill="url(#metal)" stroke="#b9cede" stroke-width="2"/>
+    <rect x="124" y="144" width="126" height="70" rx="7" fill="#eef6f9" stroke="#cfe0ea"/>
+    <text x="187" y="170" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#0b6f68">REAGENT</text>
+    <text x="187" y="186" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#14566b">CARTRIDGE</text>
+    <g fill="#cfe0ea" stroke="#b9cede" stroke-width="1">
+      <rect x="150" y="194" width="10" height="4" rx="2"/>
+      <rect x="166" y="194" width="10" height="4" rx="2"/>
+      <rect x="182" y="194" width="10" height="4" rx="2"/>
+      <rect x="198" y="194" width="10" height="4" rx="2"/>
+      <rect x="214" y="194" width="10" height="4" rx="2"/>
+      <rect x="230" y="194" width="10" height="4" rx="2"/>
+      <rect x="150" y="202" width="10" height="4" rx="2"/>
+      <rect x="166" y="202" width="10" height="4" rx="2"/>
+      <rect x="182" y="202" width="10" height="4" rx="2"/>
+      <rect x="198" y="202" width="10" height="4" rx="2"/>
+      <rect x="214" y="202" width="10" height="4" rx="2"/>
+      <rect x="230" y="202" width="10" height="4" rx="2"/>
+      <rect x="150" y="210" width="10" height="4" rx="2"/>
+      <rect x="166" y="210" width="10" height="4" rx="2"/>
+      <rect x="182" y="210" width="10" height="4" rx="2"/>
+      <rect x="198" y="210" width="10" height="4" rx="2"/>
+      <rect x="214" y="210" width="10" height="4" rx="2"/>
+      <rect x="230" y="210" width="10" height="4" rx="2"/>
+    </g>
+    <rect x="266" y="144" width="90" height="34" rx="7" fill="#12303c"/>
+    <rect x="274" y="156" width="74" height="10" rx="5" fill="#5eead4" opacity="0.8"/>
+    <g fill="#0d9488" opacity="0.75">
+      <circle cx="270" cy="192" r="5"/>
+      <circle cx="287" cy="192" r="5"/>
+      <circle cx="304" cy="192" r="5"/>
+      <circle cx="321" cy="192" r="5"/>
+      <circle cx="338" cy="192" r="5"/>
+      <circle cx="270" cy="207" r="5"/>
+      <circle cx="287" cy="207" r="5"/>
+      <circle cx="304" cy="207" r="5"/>
+      <circle cx="321" cy="207" r="5"/>
+      <circle cx="338" cy="207" r="5"/>
+      <circle cx="270" cy="222" r="5"/>
+      <circle cx="287" cy="222" r="5"/>
+      <circle cx="304" cy="222" r="5"/>
+      <circle cx="321" cy="222" r="5"/>
+      <circle cx="338" cy="222" r="5"/>
+      <circle cx="270" cy="237" r="5"/>
+      <circle cx="287" cy="237" r="5"/>
+      <circle cx="304" cy="237" r="5"/>
+      <circle cx="321" cy="237" r="5"/>
+      <circle cx="338" cy="237" r="5"/>
+    </g>
+    <path d="M108 254h264" stroke="#dbe8ef" stroke-width="2"/>
+    <rect x="330" y="262" width="28" height="6" rx="3" fill="#c3d7e3"/>
+  </g>
+</svg>

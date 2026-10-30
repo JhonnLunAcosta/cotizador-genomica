@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="Placa de PCR de 96 pocillos">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fcfd"/>
+      <stop offset="1" stop-color="#e3eef6"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8f1f6"/>
+    </linearGradient>
+    <linearGradient id="pantalla" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f3d4d"/>
+      <stop offset="1" stop-color="#16586b"/>
+    </linearGradient>
+    <pattern id="trama" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#0d9488" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="480" height="360" fill="url(#fondo)"/>
+  <rect width="480" height="360" fill="url(#trama)"/>
+  <ellipse cx="240" cy="308" rx="152" ry="13" fill="#0f3d4d" opacity="0.07"/>
+<g>
+    <path d="M104 176l136-38 136 38-136 38z" fill="#f4fafc" stroke="#b9cede" stroke-width="2"/>
+    <path d="M104 176v54l136 38 136-38v-54" fill="url(#metal)" stroke="#b9cede" stroke-width="2"/>
+    <g fill="#cfe0ea" stroke="#b9cede" stroke-width="1">
+      <ellipse cx="146" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="162" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="178" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="194" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="210" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="226" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="242" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="258" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="274" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="290" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="306" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="322" cy="186" rx="5" ry="3.6"/>
+      <ellipse cx="152" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="168" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="184" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="200" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="216" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="232" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="248" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="264" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="280" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="296" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="312" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="328" cy="197" rx="5" ry="3.6"/>
+      <ellipse cx="158" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="174" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="190" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="206" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="222" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="238" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="254" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="270" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="286" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="302" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="318" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="334" cy="208" rx="5" ry="3.6"/>
+      <ellipse cx="164" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="180" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="196" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="212" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="228" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="244" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="260" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="276" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="292" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="308" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="324" cy="219" rx="5" ry="3.6"/>
+      <ellipse cx="340" cy="219" rx="5" ry="3.6"/>
+    </g>
+    <g fill="none" stroke="#0d9488" stroke-width="2" opacity="0.5">
+      <path d="M116 206l136 38 136-38"/>
+    </g>
+    <text x="240" y="258" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#14566b">96 pocillos</text>
+  </g>
+</svg>
