@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <title th:text="'Cotización ' + ${c.numero()}">Cotización</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 13mm 16mm 13mm;
+            @bottom-left {
+                content: "Genómica Andina S.A.S.";
+                font-size: 6.5pt;
+                color: #6b7280;
+            }
+            @bottom-right {
+                content: "Página " counter(page) " de " counter(pages);
+                font-size: 6.5pt;
+                color: #6b7280;
+            }
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 8.4pt;
+            color: #1f2937;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        table { border-collapse: collapse; width: 100%; }
+        td, th { vertical-align: top; }
+
+        .head { margin-bottom: 6mm; }
+        .brand { width: 58%; padding-right: 6mm; }
+        .logo {
+            font-size: 17pt;
+            font-weight: bold;
+            letter-spacing: 0.6pt;
+            color: #0f4c5c;
+        }
+        .tagline { font-size: 7.6pt; color: #2a9d8f; margin: 1mm 0 2.5mm 0; }
+        .small { font-size: 7.4pt; color: #4b5563; }
+        .brand-line { font-size: 7.4pt; color: #4b5563; margin-top: 0.6mm; }
+
+        .doc-box {
+            width: 42%;
+            border: 0.7pt solid #0f4c5c;
+            border-radius: 2mm;
+            padding: 3mm 3.5mm;
+            background: #f8fbfc;
+        }
+        .doc-type {
+            font-size: 8pt;
+            letter-spacing: 1.6pt;
+            color: #2a9d8f;
+            font-weight: bold;
+        }
+        .doc-number { font-size: 15pt; font-weight: bold; color: #0f4c5c; margin: 0.6mm 0 2mm 0; }
+        .doc-meta { font-size: 7.4pt; width: 100%; }
+        .doc-meta td { padding: 0.55mm 0; }
+        .doc-meta .k { color: #6b7280; }
+        .doc-meta .v { text-align: right; font-weight: bold; color: #1f2937; }
+
+        .section { margin-top: 5mm; }
+        .section-title {
+            font-size: 8pt;
+            font-weight: bold;
+            color: #0f4c5c;
+            letter-spacing: 0.8pt;
+            text-transform: uppercase;
+            border-bottom: 0.7pt solid #cfe3e6;
+            padding-bottom: 1.2mm;
+            margin-bottom: 2.2mm;
+        }
+
+        .two-col { width: 100%; }
+        .two-col td { width: 50%; }
+        .two-col td.left { padding-right: 5mm; }
+
+        .label { font-size: 6.9pt; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5pt; }
+        .value { font-size: 8.6pt; font-weight: bold; color: #111827; margin-bottom: 1.2mm; }
+        .value-normal { font-size: 8.2pt; color: #1f2937; margin-bottom: 1.2mm; }
+
+        .items th {
+            background: #0f4c5c;
+            color: #ffffff;
+            font-size: 7.2pt;
+            text-align: left;
+            padding: 1.8mm 1.5mm;
+            text-transform: uppercase;
+            letter-spacing: 0.4pt;
+        }
+        .items td {
+            font-size: 7.8pt;
+            padding: 1.8mm 1.5mm;
+            border-bottom: 0.5pt solid #e5e7eb;
+        }
+        .items td.right { white-space: nowrap; }
+        .items tr:nth-child(even) td { background: #f9fafb; }
+        .right { text-align: right; }
+        .center { text-align: center; }
+        .item-name { font-weight: bold; color: #111827; }
+        .item-sub { font-size: 6.9pt; color: #6b7280; margin-top: 0.5mm; }
+        .item-reg { font-size: 6.8pt; color: #2a9d8f; margin-top: 0.6mm; }
+        .item-img { width: 17mm; height: 12.75mm; border: 0.5pt solid #e5e7eb; }
+        .item-img-vacio { font-size: 8pt; color: #9ca3af; }
+
+        .totals { width: 48%; margin-left: auto; margin-top: 2.5mm; }
+        .totals td { font-size: 7.9pt; padding: 1mm 1.5mm; }
+        .totals .k { color: #4b5563; }
+        .totals .v { text-align: right; }
+        .totals .total {
+            border-top: 0.8pt solid #0f4c5c;
+            font-weight: bold;
+            font-size: 9pt;
+            color: #0f4c5c;
+        }
+        .totals .retencion { color: #9a3412; }
+
+        .letras {
+            margin-top: 3mm;
+            border: 0.6pt solid #cfe3e6;
+            background: #f8fbfc;
+            padding: 2.2mm 3mm;
+            font-size: 7.4pt;
+        }
+        .letras b { color: #0f4c5c; }
+
+        .chips { margin-bottom: 2.5mm; }
+        .chip {
+            display: inline-block;
+            padding: 1mm 2.4mm;
+            border-radius: 3mm;
+            font-size: 7.2pt;
+            margin-right: 1.5mm;
+            font-weight: bold;
+        }
+        .chip-ok { background: #e6f4ea; color: #1e7b3c; }
+        .chip-pend { background: #fff4e5; color: #a35a00; }
+        .chip-na { background: #eef0f3; color: #5b6472; }
+
+        .check th {
+            background: #eef5f6;
+            color: #0f4c5c;
+            font-size: 6.9pt;
+            text-align: left;
+            padding: 1.4mm 1.5mm;
+            text-transform: uppercase;
+        }
+        .check td { font-size: 7.3pt; padding: 1.4mm 1.5mm; border-bottom: 0.5pt solid #e5e7eb; }
+        .badge { font-size: 6.7pt; font-weight: bold; padding: 0.6mm 1.8mm; border-radius: 2mm; }
+        .b-ok { background: #e6f4ea; color: #1e7b3c; }
+        .b-pend { background: #fff4e5; color: #a35a00; }
+        .b-na { background: #eef0f3; color: #5b6472; }
+
+        .clausula { margin-bottom: 2.6mm; page-break-inside: avoid; }
+        .clausula h4 { font-size: 8pt; color: #0f4c5c; margin: 0 0 0.8mm 0; }
+        .clausula p { font-size: 7.4pt; margin: 0; text-align: justify; color: #374151; }
+
+        .nota { font-size: 6.9pt; color: #6b7280; text-align: justify; }
+        .page-break { page-break-before: always; }
+
+        .sign { margin-top: 10mm; width: 60%; }
+        .sign .line { border-top: 0.7pt solid #111827; margin-bottom: 1mm; }
+        .sign .name { font-size: 8pt; font-weight: bold; }
+        .sign .role { font-size: 7pt; color: #6b7280; }
+    </style>
+</head>
+<body>
+
+<!-- ============================ CABECERA ============================ -->
+<table class="head">
+    <tr>
+        <td class="brand">
+            <div class="logo">GENÓMICA ANDINA</div>
+            <div class="tagline">Equipos, reactivos y servicios de secuenciación genómica</div>
+            <div class="small" th:text="${c.empresa().razonSocial()}">Genómica Andina S.A.S.</div>
+            <div class="brand-line" th:text="${'NIT ' + c.empresa().nit() + '-' + c.empresa().digitoVerificacion()}">NIT 901456789-3</div>
+            <div class="brand-line" th:text="${c.empresa().direccion() + ' · ' + c.empresa().ciudad()}">Calle 93 # 15-20 · Bogotá D.C.</div>
+            <div class="brand-line" th:text="${'Tel. ' + c.empresa().telefono() + ' · ' + c.empresa().email()}">Tel. +57 601 745 8899</div>
+            <div class="brand-line" th:text="${'Resolución de facturación DIAN ' + c.empresa().resolucionFacturacion()}">Resolución DIAN</div>
+        </td>
+        <td class="doc-box">
+            <div class="doc-type">COTIZACIÓN COMERCIAL</div>
+            <div class="doc-number" th:text="${c.numero()}">COT-2026-0001</div>
+            <table class="doc-meta">
+                <tr>
+                    <td class="k">Fecha de emisión</td>
+                    <td class="v" th:text="${fmt.fecha(c.fechaEmision())}">29/10/2026</td>
+                </tr>
+                <tr>
+                    <td class="k">Vigencia</td>
+                    <td class="v" th:text="${c.validezDias() + ' días'}">15 días</td>
+                </tr>
+                <tr>
+                    <td class="k">Vence</td>
+                    <td class="v" th:text="${fmt.fecha(c.fechaVencimiento())}">13/11/2026</td>
+                </tr>
+                <tr>
+                    <td class="k">Versión</td>
+                    <td class="v" th:text="${c.version()}">1</td>
+                </tr>
+                <tr>
+                    <td class="k">Moneda</td>
+                    <td class="v" th:text="${c.moneda()}">COP</td>
+                </tr>
+                <tr>
+                    <td class="k">Estado</td>
+                    <td class="v" th:text="${fmt.estado(c.estadoEfectivo())}">Enviada</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!-- ============================ CLIENTE ============================ -->
+<div class="section">
+    <div class="section-title">Datos del cliente</div>
+    <table class="two-col">
+        <tr>
+            <td class="left">
+                <div class="label">Razón social</div>
+                <div class="value" th:text="${c.cliente().razonSocial()}">Laboratorio Clínico San Rafael IPS S.A.S.</div>
+                <table class="two-col">
+                    <tr>
+                        <td>
+                            <div class="label">Identificación</div>
+                            <div class="value-normal"
+                                 th:text="${c.cliente().tipoDocumento() + ' ' + c.cliente().numeroDocumento()}">NIT 900123456</div>
+                        </td>
+                        <td>
+                            <div class="label">Código de habilitación</div>
+                            <div class="value-normal" th:text="${c.cliente().codigoHabilitacion() != null ? c.cliente().codigoHabilitacion() : 'No aplica'}">1100101234</div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="label">Dirección</div>
+                <div class="value-normal"
+                     th:text="${c.cliente().direccion() + ' · ' + c.cliente().ciudad() + ', ' + c.cliente().departamento()}">Carrera 45 # 26-85 · Bogotá D.C.</div>
+                <div class="label">Contacto</div>
+                <div class="value-normal"
+                     th:text="${(c.cliente().telefono() != null ? c.cliente().telefono() : '') + ' ' + (c.cliente().email() != null ? c.cliente().email() : '')}">Tel. +57 601 555 1234</div>
+            </td>
+            <td>
+                <div class="label">Forma de pago</div>
+                <div class="value-normal" th:text="${c.formaPago()}">50% con la orden de compra</div>
+                <div class="label">Plazo de entrega</div>
+                <div class="value-normal" th:text="${c.plazoEntrega()}">Equipos: 45 días</div>
+                <div class="label">Lugar de entrega</div>
+                <div class="value-normal" th:text="${c.lugarEntrega()}">Bogotá D.C.</div>
+                <div class="label">Garantía</div>
+                <div class="value-normal" th:text="${c.garantiaMeses() + ' meses'}">12 meses</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- ============================ ÍTEMS ============================ -->
+<div class="section">
+    <div class="section-title">Bienes y servicios ofrecidos</div>
+    <table class="items">
+        <thead>
+        <tr>
+            <th style="width: 4%;">#</th>
+            <th style="width: 9%;">Imagen</th>
+            <th style="width: 35%;">Descripción</th>
+            <th style="width: 7%;">Unidad</th>
+            <th style="width: 6%;" class="right">Cant.</th>
+            <th style="width: 13%;" class="right">V. unitario</th>
+            <th style="width: 7%;" class="right">Desc.</th>
+            <th style="width: 7%;" class="right">IVA</th>
+            <th style="width: 12%;" class="right">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="i : ${c.items()}">
+            <td class="center" th:text="${i.orden()}">1</td>
+            <td class="center">
+                <img class="item-img" th:if="${imgPdf[i.sku()] != null}" th:src="${imgPdf[i.sku()]}" alt=""/>
+                <span class="item-img-vacio" th:if="${imgPdf[i.sku()] == null}">—</span>
+            </td>
+            <td>
+                <div class="item-name" th:text="${i.descripcion()}">Secuenciador</div>
+                <div class="item-sub"
+                     th:text="${i.sku() + (i.marca() != null ? ' · ' + i.marca() : '') + (i.modelo() != null ? ' · ' + i.modelo() : '')}">SKU · Marca · Modelo</div>
+                <div class="item-reg" th:if="${i.registroSanitario() != null}"
+                     th:text="${'Registro sanitario: ' + i.registroSanitario() + ' · vence ' + fmt.fecha(i.registroVence())}">Registro sanitario</div>
+            </td>
+            <td th:text="${i.unidadMedida()}">unidad</td>
+            <td class="right" th:text="${fmt.num(i.cantidad())}">1</td>
+            <td class="right" th:text="${fmt.money(i.precioUnitario(), c.moneda())}">$ 512.500.000</td>
+            <td class="right" th:text="${fmt.pct(i.descuentoPct())}">0,00 %</td>
+            <td class="right" th:text="${fmt.pct(i.ivaPct())}">19,00 %</td>
+            <td class="right" th:text="${fmt.money(i.total(), c.moneda())}">$ 609.875.000</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="totals">
+        <tr>
+            <td class="k">Subtotal</td>
+            <td class="v" th:text="${fmt.money(c.totales().subtotal(), c.moneda())}">$ 578.000.000</td>
+        </tr>
+        <tr>
+            <td class="k">IVA</td>
+            <td class="v" th:text="${fmt.money(c.totales().ivaTotal(), c.moneda())}">$ 109.820.000</td>
+        </tr>
+        <tr>
+            <td class="k">Total bruto</td>
+            <td class="v" th:text="${fmt.money(c.totales().totalBruto(), c.moneda())}">$ 687.820.000</td>
+        </tr>
+        <tr class="retencion" th:if="${c.totales().retefuente().signum() > 0}">
+            <td class="k">Retención en la fuente</td>
+            <td class="v" th:text="${'- ' + fmt.money(c.totales().retefuente(), c.moneda())}">- $ 548.000</td>
+        </tr>
+        <tr class="retencion" th:if="${c.totales().reteica().signum() > 0}">
+            <td class="k">ReteICA</td>
+            <td class="v" th:text="${'- ' + fmt.money(c.totales().reteica(), c.moneda())}">- $ 5.583.480</td>
+        </tr>
+        <tr class="total">
+            <td>Total neto a pagar</td>
+            <td class="v" th:text="${fmt.money(c.totales().totalNeto(), c.moneda())}">$ 681.688.520</td>
+        </tr>
+    </table>
+
+    <div class="letras">
+        <b>SON:</b>
+        <span th:text="${fmt.letras(c.totales().totalNeto(), c.moneda())}">SEISCIENTOS OCHENTA Y UN MILLONES</span>
+    </div>
+</div>
+
+<!-- ============================ CONDICIONES ============================ -->
+<div class="section">
+    <div class="section-title">Condiciones comerciales</div>
+    <table class="two-col">
+        <tr>
+            <td class="left">
+                <div class="label">Observaciones</div>
+                <div class="value-normal" th:text="${c.observaciones() != null ? c.observaciones() : 'Sin observaciones adicionales.'}">Oferta</div>
+            </td>
+            <td>
+                <div class="label">Condiciones</div>
+                <div class="value-normal" th:text="${c.condicionesComerciales()}">Precios en COP</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- ============================ CUMPLIMIENTO ============================ -->
+<div class="section page-break">
+    <div class="section-title">Cumplimiento normativo colombiano</div>
+
+    <div class="chips">
+        <span class="chip chip-ok" th:text="${'Cumplidos: ' + cumplidos}">Cumplidos: 7</span>
+        <span class="chip chip-pend" th:text="${'Pendientes: ' + pendientes}">Pendientes: 7</span>
+        <span class="chip chip-na" th:text="${'No aplica: ' + noAplica}">No aplica: 1</span>
+    </div>
+
+    <div class="label" style="margin-bottom: 1.5mm;">Registro sanitario de los bienes ofrecidos</div>
+    <table class="check" th:if="${conRegistro > 0}">
+        <thead>
+        <tr>
+            <th style="width: 10%;">Ítem</th>
+            <th style="width: 40%;">Producto</th>
+            <th style="width: 30%;">Registro sanitario</th>
+            <th style="width: 20%;">Vencimiento</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="i : ${c.items()}" th:if="${i.registroSanitario() != null}">
+            <td th:text="${i.orden()}">1</td>
+            <td th:text="${i.descripcion()}">Producto</td>
+            <td th:text="${i.registroSanitario()}">INVIMA</td>
+            <td th:text="${fmt.fecha(i.registroVence())}">30/06/2027</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="nota" th:if="${conRegistro == 0}">
+        Los bienes y servicios de esta oferta no requieren registro sanitario ante el INVIMA.
+    </div>
+
+    <div class="label" style="margin: 5mm 0 1.5mm 0;">Checklist regulatorio de la oferta</div>
+    <table class="check">
+        <thead>
+        <tr>
+            <th style="width: 9%;">Código</th>
+            <th style="width: 55%;">Requisito</th>
+            <th style="width: 20%;">Norma de referencia</th>
+            <th style="width: 16%;">Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="r : ${c.requisitos()}">
+            <td th:text="${r.codigo()}">RS-01</td>
+            <td>
+                <span th:text="${r.titulo()}">Registro sanitario</span>
+                <span style="color:#9ca3af;" th:if="${!r.obligatorio()}"> (opcional)</span>
+            </td>
+            <td th:text="${r.norma() != null ? r.norma() : '-'}">DEC-4725-2005</td>
+            <td>
+                <span class="badge"
+                      th:classappend="${r.estado() == 'cumplido' ? 'b-ok' : (r.estado() == 'no_aplica' ? 'b-na' : 'b-pend')}"
+                      th:text="${fmt.estado(r.estado())}">Pendiente</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="nota" style="margin-top: 2.5mm;">
+        Las normas citadas se entregan como referencia de cumplimiento y deben verificarse en su vigencia y
+        aplicabilidad al momento de la aceptación de la oferta. Esta cotización no constituye asesoría jurídica.
+    </div>
+</div>
+
+<!-- ============================ CLÁUSULAS ============================ -->
+<div class="section">
+    <div class="section-title">Cláusulas</div>
+    <div class="clausula" th:each="cl : ${c.clausulas()}">
+        <h4 th:text="${cl.titulo()}">Garantía</h4>
+        <p th:text="${cl.cuerpo()}">Texto</p>
+    </div>
+</div>
+
+<!-- ============================ NORMAS ============================ -->
+<div class="section">
+    <div class="section-title">Marco normativo citado</div>
+    <table class="check">
+        <thead>
+        <tr>
+            <th style="width: 22%;">Norma</th>
+            <th style="width: 55%;">Título</th>
+            <th style="width: 15%;">Entidad</th>
+            <th style="width: 8%;">Año</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="n : ${c.normas()}">
+            <td th:text="${n.codigo()}">LEY-1581-2012</td>
+            <td th:text="${n.titulo()}">Protección de datos</td>
+            <td th:text="${n.entidad()}">Congreso</td>
+            <td th:text="${n.anio()}">2012</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ============================ FIRMA ============================ -->
+<div class="section">
+    <table class="two-col">
+        <tr>
+            <td class="left">
+                <div class="sign">
+                    <div class="line"></div>
+                    <div class="name" th:text="${c.empresa().representanteLegal()}">María Fernanda Rojas</div>
+                    <div class="role">Representante legal · Genómica Andina S.A.S.</div>
+                </div>
+            </td>
+            <td>
+                <div class="nota">
+                    Documento generado electrónicamente el
+                    <span th:text="${fmt.fecha(c.fechaEmision())}">29/10/2026</span>.
+                    La oferta está sujeta a disponibilidad del fabricante y a la confirmación de la orden de compra.
+                    Para aceptar esta cotización escriba a
+                    <span th:text="${c.empresa().email()}">comercial@genomicaandina.co</span>
+                    indicando el número <b th:text="${c.numero()}">COT-2026-0001</b>.
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
